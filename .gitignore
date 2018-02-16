@@ -3,6 +3,7 @@
 [Oo]bj/
 build/
 .vs/
+*.ide
 
 /*.ide
 
