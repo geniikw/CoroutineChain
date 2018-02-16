@@ -1,10 +1,17 @@
-CoroutineChain(0.1.1)
+CoroutineChain(0.2)
 
 This asset consists of a single class wrapped around the CoroutineStart method.
  To invoke a coroutine using this asset, you can use
 
 CoroutineChain.Start
 .Play (Coroutine1 ());
+
+or 
+
+(in Monobehaviour)
+this.StartChain()
+.Play(Coroutine1());
+
 
 When Coroutine1 is over,
 If you need add a callback or want to play another coroutine, you can continue to chain it.
@@ -29,4 +36,4 @@ CoroutineChain.Start
 
 Leave a message if you have feedback.
 
-https://gist.github.com/geniikw/071463c491eee975c863a9163c9dcf69
+https://github.com/geniikw/CoroutineChain
