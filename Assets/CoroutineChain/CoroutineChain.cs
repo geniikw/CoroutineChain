@@ -86,7 +86,7 @@ public static class CoroutineChain
         {
             Chain current = null;
 
-            current = ParallelChaining(next.Select(n=>n()), this);
+            current = ParallelChaining(next.Select(n => n()), this);
 
             return current;
         }
@@ -113,10 +113,10 @@ public static class CoroutineChain
                 yield return null;
             }
         }
-        
+
         public Chain Log(string log)
         {
-            return Chaining(SimpleCall(() => Debug.Log(log)),this);
+            return Chaining(SimpleCall(() => Debug.Log(log)), this);
         }
     }
 

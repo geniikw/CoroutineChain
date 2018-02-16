@@ -6,8 +6,8 @@ This asset consists of a single class wrapped around the CoroutineStart method.
 CoroutineChain.Start
 .Play (Coroutine1 ());
 
- If Coroutine1 is over
-If you need a callback or want to play another coroutine, you can continue to chain it.
+When Coroutine1 is over,
+If you need add a callback or want to play another coroutine, you can continue to chain it.
 
 CoroutineChain.Start
 .Play (Coroutine1 ())
