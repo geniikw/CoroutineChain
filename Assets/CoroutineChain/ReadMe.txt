@@ -1,6 +1,6 @@
 CoroutineChain(0.2)
 
-This asset consists of a single class wrapped around the CoroutineStart method.
+This asset consists of some classes wrapped around the CoroutineStart method.
  To invoke a coroutine using this asset, you can use
 
 CoroutineChain.Start
@@ -27,7 +27,7 @@ CoroutineChain.Start
 .Sequential(Coroutine1(), Coroutine2())
 .Call (() => Debug.Log ("CompleteChain");
 
- another option is parallel. It play coroutines same time.
+ another option is parallel. It play coroutines at same time.
 
 CoroutineChain.Start
 .Call (() => Debug.Log ("PlaySameTime");

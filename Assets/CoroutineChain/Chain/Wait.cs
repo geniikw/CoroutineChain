@@ -15,10 +15,10 @@ namespace geniikw.CoroutineChain
 
         public Coroutine Play(MonoBehaviour mono)
         {
-            return mono.StartCoroutine(Routine());
+            return mono.StartCoroutine(WaitRoutine());
         }
 
-        IEnumerator Routine()
+        IEnumerator WaitRoutine()
         {
             yield return new WaitForSeconds(_waitSec);
         }

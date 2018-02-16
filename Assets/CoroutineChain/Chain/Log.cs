@@ -13,7 +13,6 @@ namespace geniikw.CoroutineChain {
 
     public class Log : IChain
     {
-       
         string _log;
         ELogType _type;
         
