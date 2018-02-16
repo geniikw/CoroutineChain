@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using geniikw.CoroutineChain;
+using geniikw.CChain;
 
 public static class MonobehaviourExtend
 {    

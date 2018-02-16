@@ -9,7 +9,7 @@ public enum ELogType
     ERROR
 }
 
-namespace geniikw.CoroutineChain {
+namespace geniikw.CChain {
 
     public class Log : IChain
     {

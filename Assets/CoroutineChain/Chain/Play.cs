@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace geniikw.CoroutineChain
+namespace geniikw.CChain
 {
     public class Play : IChain
     {
