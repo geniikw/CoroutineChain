@@ -7,7 +7,6 @@ It is a small asset that makes it possible to call Unity's coroutines while chai
 
 ```csharp
 void Start(){
-
   this.StartChain() // or CoroutineChain.Start.Play ...
       .Play(Coroutine())
       .Sequencial(A(),B(),C()) // play one by one.
@@ -15,12 +14,7 @@ void Start(){
       .Wait(1f)
       .Log("Complete!");
       .Call(()=>Callback());
-      
 }
 ```
 
 [AssetStore](https://www.assetstore.unity3d.com/kr/#!/content/109785)
-
-you can buy me coffee!
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E4BMRDBLE79K4)
