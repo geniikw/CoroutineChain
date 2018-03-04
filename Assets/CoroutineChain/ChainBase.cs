@@ -37,10 +37,11 @@ namespace geniikw.CChain
             //큐를 쌓는데 그동안 기다려야 한다.
             //만약 사용자가 빈 Chain을 실행하는 경우 끝나지 않는 Coroutine이 됨으로 
             //1초간만 기다린다.
+            //그냥 yield return null 으로 루프 한번만 돌면 다음루프에는 큐가 채워져있다.
             
-            var startTime = Time.realtimeSinceStartup;
-            while (m_chainQueue.Count == 0 && Time.realtimeSinceStartup - startTime < 1)
-                yield return null;
+            //var startTime = Time.realtimeSinceStartup;
+            //while (m_chainQueue.Count == 0 && Time.realtimeSinceStartup - startTime < 1)
+            yield return null;
                         
             while (m_chainQueue.Count > 0)
             {
