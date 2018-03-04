@@ -38,8 +38,8 @@ namespace geniikw.CChain
             //만약 사용자가 빈 Chain을 실행하는 경우 끝나지 않는 Coroutine이 됨으로 
             //1초간만 기다린다.
             
-            var startTime = Time.realtimeSinceStartup;
-            while (m_chainQueue.Count == 0 && Time.realtimeSinceStartup - startTime < 1)
+            // var startTime = Time.realtimeSinceStartup;
+            // while (m_chainQueue.Count == 0 && Time.realtimeSinceStartup - startTime < 1)
                 yield return null;
                         
             while (m_chainQueue.Count > 0)
