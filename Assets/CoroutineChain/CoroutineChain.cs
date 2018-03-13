@@ -5,7 +5,7 @@ using geniikw.CChain;
 
 public static class MonobehaviourExtend
 {    
-    public static ChainBase.Chainer StartChain(this MonoBehaviour mono)
+    public static ChainBase StartChain(this MonoBehaviour mono)
     {
         return ChainBase.BasePool.Spawn().Setup(mono);
     }
@@ -36,7 +36,7 @@ public static class CoroutineChain
         m_instance.StopAllCoroutines();
     }
     
-    public static ChainBase.Chainer Start
+    public static ChainBase Start
     {
         get
         {

@@ -18,16 +18,14 @@ namespace geniikw.CChain
     
     public class ChainBase : CustomYieldInstruction
     {
-        static MemoryPool<ChainBase> BasePool = new MemoryPool<ChainBase>(null,c => c.Clear());
-        static MemoryPool<Chain> ChainPool = new MemoryPool<Chain>(null,c => c.Clear());
+        public static MemoryPool<ChainBase> BasePool = new MemoryPool<ChainBase>(null,c => c.Clear());
+        public static MemoryPool<Chain> ChainPool = new MemoryPool<Chain>(null,c => c.Clear());
         
         MonoBehaviour _player;
 
         Queue<Chain> m_chainQueue = new Queue<Chain>();
         
-        bool m_isPlay;
-
-        Chainer _chainer = null;
+        bool m_isPlay = true;
 
         public override bool keepWaiting
         {
@@ -37,16 +35,12 @@ namespace geniikw.CChain
             }
         }
 
-        public Chainer Setup(MonoBehaviour player)
+        public ChainBase Setup(MonoBehaviour player)
         {
             m_isPlay = true;
             _player = player;
             _player.StartCoroutine(Routine());
-
-            if (_chainer == null)
-                _chainer = new Chainer(this);
-
-            return _chainer;
+            return this;
         }
 
         void Clear()
@@ -72,25 +66,29 @@ namespace geniikw.CChain
             BasePool.Despawn(this);
         }
 
-        void Play(IEnumerator routine)
+        public ChainBase Play(IEnumerator routine)
         {
             m_chainQueue.Enqueue(ChainPool.Spawn().SetupRoutine(routine, _player));
+            return this;
         }
 
-        void Wait(float waitSec)
+        public ChainBase Wait(float waitSec)
         {
             m_chainQueue.Enqueue(ChainPool.Spawn().SetupRoutine(WaitRoutine(waitSec), _player));
+            return this;
         }
 
-        void Parallel(params IEnumerator[] routines)
+        public ChainBase Parallel(params IEnumerator[] routines)
         {
             m_chainQueue.Enqueue(ChainPool.Spawn().SetupParallel(routines, _player));
+            return this;
         }
 
-        void Sequential(params IEnumerator[] routines)
+        public ChainBase Sequential(params IEnumerator[] routines)
         {
             foreach (var routine in routines)
                 m_chainQueue.Enqueue(ChainPool.Spawn().SetupRoutine(routine, _player));
+            return this;
         }
 
         public ChainBase Log(string log, ELogType type = ELogType.NORMAL)
@@ -115,61 +113,10 @@ namespace geniikw.CChain
             m_chainQueue.Enqueue(ChainPool.Spawn().SetupNon(action, _player));
             return this;
         }
-        
-        public class Chainer
-        {
-            ChainBase _base;
-            public Chainer(ChainBase b)
-            {
-                _base = b;
-            }
-
-            public Chainer Play(IEnumerator routine)
-            {
-                _base.Play(routine);
-                return this;
-            }
-
-            public Chainer Call(System.Action action)
-            {
-                _base.Call(action);
-                return this;
-            }
-
-            public Chainer Parallel(params IEnumerator[] routines)
-            {
-                _base.Parallel(routines);
-                return this;
-            }
-
-            public Chainer Sequential(params IEnumerator[] routines)
-            {
-                _base.Sequential(routines);
-                return this;
-            }
-
-            public Chainer Wait(float sec)
-            {
-                _base.Wait(sec);
-                return this;
-            }
-
-            public Chainer Log(string log, ELogType type = ELogType.NORMAL)
-            {
-                _base.Log(log, type);
-                return this;
-            }
-        }
-
 
         IEnumerator WaitRoutine(float wait)
         {
-            var t = 0f;
-            while(t < 1f)
-            {
-                t += Time.deltaTime / wait;
-                yield return null;
-            }
+            yield return new WaitForSeconds(wait);
         }
     }
 }

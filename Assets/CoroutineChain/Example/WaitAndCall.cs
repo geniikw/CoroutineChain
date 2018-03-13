@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using geniikw.CChain;
 
 public class WaitAndCall : MonoBehaviour {
 
@@ -11,9 +10,8 @@ public class WaitAndCall : MonoBehaviour {
             .Call(() => Debug.Log("1"))
             .Wait(1)
             .Log("2")
-            .Wait(1)            
+            .Wait(1)
             .Log("end");
-        
 	}
 	
 	// Update is called once per frame
