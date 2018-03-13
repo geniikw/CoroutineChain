@@ -18,8 +18,8 @@ namespace geniikw.CChain
     
     public class ChainBase : CustomYieldInstruction
     {
-        public static MemoryPool<ChainBase> BasePool = new MemoryPool<ChainBase>(null,c => c.Clear());
-        public static MemoryPool<Chain> ChainPool = new MemoryPool<Chain>(null,c => c.Clear());
+        public static MemoryPool<ChainBase, MonoBehaviour> BasePool = new MemoryPool<ChainBase, MonoBehaviour>((c, m) => c.Setup(m), c => c.Clear());
+        public static MemoryPool<Chain> ChainPool = new MemoryPool<Chain>(null, c => c.Clear());
         
         MonoBehaviour _player;
 
@@ -35,7 +35,7 @@ namespace geniikw.CChain
             }
         }
 
-        public ChainBase Setup(MonoBehaviour player)
+        ChainBase Setup(MonoBehaviour player)
         {
             m_isPlay = true;
             _player = player;
