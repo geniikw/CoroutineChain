@@ -20,6 +20,7 @@ namespace geniikw.CChain
 
         public T Spawn(TInit init)
         {
+            //Debug.Log("Spawn : " + typeof(T) + "pool Count : " + m_pool.Count);
             T item;
             if (m_pool.Count == 0)
             {
@@ -37,7 +38,8 @@ namespace geniikw.CChain
 
         public void Despawn(T item)
         {
-            if(_OnDespawn != null)
+            //Debug.Log("Despawn : " + typeof(T) + "pool Count : " + m_pool.Count);
+            if (_OnDespawn != null)
                 _OnDespawn(item);
             m_pool.Push(item);
         }
@@ -57,6 +59,7 @@ namespace geniikw.CChain
 
         public T Spawn()
         {
+            //Debug.Log("Spawn : " + typeof(T) + "pool Count : " + m_pool.Count);
             T item;
             if (m_pool.Count == 0)
             {
@@ -74,6 +77,7 @@ namespace geniikw.CChain
 
         public void Despawn(T item)
         {
+            //Debug.Log("Despawn : " + typeof(T) + "pool Count : " + m_pool.Count);
             if (_OnDespawn != null)
                 _OnDespawn(item);
             m_pool.Push(item);

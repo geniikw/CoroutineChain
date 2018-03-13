@@ -22,10 +22,10 @@ public class Example : MonoBehaviour
               .Play(cube2.MoveToForSec(Vector3.right, time))
               .Wait(time)
               .Parallel(cube1.MoveToForSec(Vector3.up, time), cube2.MoveToForSec(Vector2.one, time))
-              .Log("Parallel Complete!")
+              //.Log("Parallel Complete!")
               .Wait(time)
-              .Sequential(cube1.MoveToForSec(Vector3.zero, time), cube2.MoveToForSec(Vector3.right, time))
-              .Log("Sequential Complete", ELogType.NORMAL);
+              .Sequential(cube1.MoveToForSec(Vector3.zero, time), cube2.MoveToForSec(Vector3.right, time));
+             // .Log("Sequential Complete", ELogType.NORMAL);
         }
     }
 }
