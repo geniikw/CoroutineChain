@@ -116,7 +116,12 @@ namespace geniikw.CChain
 
         IEnumerator WaitRoutine(float wait)
         {
-            yield return new WaitForSeconds(wait);
+            float t = 0f;
+            while(t< 1f)
+            {
+                t += Time.deltaTime / wait;
+                yield return null;
+            }
         }
     }
 }
