@@ -7,7 +7,8 @@ public static class MonobehaviourExtend
 {    
     public static ChainBase StartChain(this MonoBehaviour mono)
     {
-        return ChainBase.BasePool.Spawn().Setup(mono);
+        var chain = new ChainBase(mono);
+        return chain;
     }
 }
 
@@ -40,7 +41,8 @@ public static class CoroutineChain
     {
         get
         {
-            return ChainBase.BasePool.Spawn().Setup(Instance);
+            var b = new ChainBase(Instance);
+            return b;
         }
     }
 
