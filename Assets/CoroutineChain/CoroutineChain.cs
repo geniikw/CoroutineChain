@@ -6,6 +6,12 @@ using System;
 using Object = UnityEngine.Object;
 #region Accessor
 
+/*
+CoroutineChain (v0.2.1) author - geniikw@gmail.com
+all free, no duty, no warranty. 
+If you feel good, you can apply MIT license(this is not enforceable)
+*/
+
 public enum ELogType
 {
     NORMAL,
