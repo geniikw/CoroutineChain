@@ -14,8 +14,4 @@ public class WaitAndCall : MonoBehaviour {
             .Log("end");
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
