@@ -1,4 +1,4 @@
-CoroutineChain(0.2)
+CoroutineChain(1.0)
 
 This asset consists of some classes wrapped around the CoroutineStart method.
  To invoke a coroutine using this asset, you can use
