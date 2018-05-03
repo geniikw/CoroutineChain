@@ -22,7 +22,7 @@ IEnumerator Sequncial(){
 
 It is a small asset that makes it possible to call Unity's coroutines while chaining them.
 
-so you don't need to write seuqencial block. just chain it in call black.
+so you don't need to write seuqencial block. just chain it in call block.
 
 ```csharp
 void Start(){
