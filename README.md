@@ -1,6 +1,8 @@
 # CoroutineChain
 Unity3d, Coroutine, scripting
 
+## intro
+
 In my exprience, Generally coroutine code can be classified into two kinds.
 
 One is functional one block. for example 
@@ -24,6 +26,11 @@ It is a small asset that makes it possible to call Unity's coroutines while chai
 
 so you don't need to write seuqencial block. just chain it in call block.
 
+
+## chain
+
+### Basic
+all block wait previous block. 
 ```csharp
 void Start(){
   this.StartChain() // or CoroutineChain.Start.Play ...
@@ -33,6 +40,96 @@ void Start(){
       .Wait(1f)
       .Log("Complete!");
       .Call(()=>Callback());
+}
+```
+
+
+
+### Play(IEnumerator coroutine)
+play one coroutine. it is same as StartCoroutine().
+```csharp
+void Start(){
+    //Normal
+    StartCoroutine(A());
+    //CoroutineChain
+    this.StartChain()
+        .Play(A());
+}
+```
+
+### Wait(float sec)
+```csharp
+void Start(){
+    this.StartChain()
+        .Wait(1)
+        .Log("end");
+    //1sec later debug log show out.
+}
+```
+
+### Parallel(IEnumerator[] routines)
+all coroutine start at same time
+```csharp
+void Start(){
+    ///Normal.
+    StartCoroutine(A());
+    StartCoroutine(B());
+    StartCoroutine(C());    
+    
+    //CoroutineChain, Less Character!
+    this.StartChain()
+        .Parallel(A(),B(),C());
+}
+```
+
+
+### Sequential(IEnemerator[] routines)
+it same as continuous Play block. 
+```csharp
+IEnumerator Start(){///CoroutineStartBlock.
+    ///Normal.
+    yield return StartCoroutine(A());
+    yield return StartCoroutine(B());
+    yield return StartCoroutine(C());    
+    
+    //CoroutineChain, Less Character!
+    yield return this.StartChain()
+        .Sequencial(A(),B(),C());
+}
+```
+### Log(string log, ELogTtype type = ELogType.NORMAL)
+log block is not coroutine. 
+```csharp
+IEnumerator Start(){///CoroutineStartBlock.
+    ///Normal.
+    ///can't
+    
+    //CoroutineChain
+    yield return this.StartChain()
+        .Sequencial(A(),B(),C())
+        .Log("A, B and C all end!!");
+}
+```
+
+### Call(Action)
+you can simply setup callback.
+this is Parallel block using Call() as coroutine callback.
+
+```cshapr
+IEnumerator Parallel(IEnumerator[] routines)
+{
+    var all = 0;
+    foreach (var r in routines)
+        all++;
+
+    var c = 0;
+    foreach (var r in routines)
+        player.StartChain()
+            .Play(r)
+            .Call(() => c++);
+
+    while (c < all)
+        yield return null;
 }
 ```
 
