@@ -117,7 +117,7 @@ IEnumerator Start(){///CoroutineStartBlock.
 you can simply setup callback.
 
 this is Parallel block using Call() as coroutine callback.
-```cshapr
+```csharp
 IEnumerator Parallel(IEnumerator[] routines)
 {
     var all = 0;
