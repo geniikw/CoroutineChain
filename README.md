@@ -26,8 +26,9 @@ It is a small asset that makes it possible to call Unity's coroutines while chai
 
 so you don't need to write seuqencial block. just chain it in call block.
 
+[AssetStore](https://www.assetstore.unity3d.com/kr/#!/content/109785)
 
-## chain
+## Chain document.
 
 ### Basic
 all block wait previous block. 
@@ -42,8 +43,6 @@ void Start(){
       .Call(()=>Callback());
 }
 ```
-
-
 
 ### Play(IEnumerator coroutine)
 play one coroutine. it is same as StartCoroutine().
@@ -102,7 +101,10 @@ log block is not coroutine.
 ```csharp
 IEnumerator Start(){///CoroutineStartBlock.
     ///Normal.
-    ///can't
+    yield return StartCoroutine(A());
+    yield return StartCoroutine(A());
+    yield return StartCoroutine(A());
+    Debug.Log(A, B and C all end!!");
     
     //CoroutineChain
     yield return this.StartChain()
@@ -113,8 +115,8 @@ IEnumerator Start(){///CoroutineStartBlock.
 
 ### Call(Action)
 you can simply setup callback.
-this is Parallel block using Call() as coroutine callback.
 
+this is Parallel block using Call() as coroutine callback.
 ```cshapr
 IEnumerator Parallel(IEnumerator[] routines)
 {
@@ -133,4 +135,3 @@ IEnumerator Parallel(IEnumerator[] routines)
 }
 ```
 
-[AssetStore](https://www.assetstore.unity3d.com/kr/#!/content/109785)
