@@ -26,6 +26,20 @@ It is a small asset that makes it possible to call Unity's coroutines while chai
 
 so you don't need to write seuqencial block. just chain it in call block.
 
+```csharp
+public void Start(){
+    //same as above.
+    CoroutineChain.Start
+        .Play(A())
+        .Play(B())
+        .Play(C());
+    //or
+    CoroutineChain.Start
+        .Sequencial(A(),B(),C());
+}
+```
+
+
 [AssetStore](https://www.assetstore.unity3d.com/kr/#!/content/109785)
 
 ## Chain document.
