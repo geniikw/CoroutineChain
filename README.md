@@ -1,9 +1,14 @@
 # CoroutineChain
 Unity3d, Coroutine, scripting
 
-## intro
+## Intro
 
-In my exprience, Generally coroutine code can be classified into two kinds.
+- easy to read coroutine code.
+- define callback simply
+- call coroutine at outside of MonoBehavour.
+
+
+In my exprience, generally coroutine code can be classified into two kinds.
 
 One is functional one block. for example 
 
@@ -38,7 +43,6 @@ public void Start(){
         .Sequencial(A(),B(),C());
 }
 ```
-
 
 [AssetStore](https://www.assetstore.unity3d.com/kr/#!/content/109785)
 
