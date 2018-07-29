@@ -13,18 +13,18 @@ public class Example : MonoBehaviour
         while (true)
         {
             yield return CoroutineChain.Start
-              .Play(cube1.MoveToForSec(Vector3.up, time))
+              .Play(cube1.Move(Vector3.up, time))
               .Wait(time)
-              .Play(cube1.MoveToForSec(Vector3.zero, time))
+              .Play(cube1.Move(Vector3.zero, time))
               .Wait(time)
-              .Play(cube2.MoveToForSec(Vector2.one, time))
+              .Play(cube2.Move(Vector2.one, time))
               .Wait(time)
-              .Play(cube2.MoveToForSec(Vector3.right, time))
+              .Play(cube2.Move(Vector3.right, time))
               .Wait(time)
-              .Parallel(cube1.MoveToForSec(Vector3.up, time), cube2.MoveToForSec(Vector2.one, time))
+              .Parallel(cube1.Move(Vector3.up, time), cube2.Move(Vector2.one, time))
               .Log("Parallel Complete!")
               .Wait(time)
-              .Sequential(cube1.MoveToForSec(Vector3.zero, time), cube2.MoveToForSec(Vector3.right, time))
+              .Sequential(cube1.Move(Vector3.zero, time), cube2.Move(Vector3.right, time))
               .Log("Sequential Complete", ELogType.NORMAL);
         }
     }
@@ -32,7 +32,7 @@ public class Example : MonoBehaviour
 
 public static class CommonCoroutine
 {
-    static public IEnumerator MoveToForSec(this Transform trans, Vector3 worldPosition, float sec)
+    static public IEnumerator Move(this Transform trans, Vector3 worldPosition, float sec)
     {
         var start = trans.position;
         var t = 0f;

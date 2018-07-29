@@ -224,11 +224,6 @@ namespace geniikw.CChain
         }
     }
 
-    public interface IChain
-    {
-        Coroutine Play(MonoBehaviour mono);
-    }
-
     public class ChainBase : CustomYieldInstruction
     {
         public static MemoryPool<ChainBase, MonoBehaviour> BasePool = new MemoryPool<ChainBase, MonoBehaviour>((c, m) => c.Setup(m), c => c.Clear());
