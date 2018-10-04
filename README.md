@@ -20,7 +20,7 @@ IEnumerator OneFunction(){
 }
 ```
 
-Other is squencial code. It consist of functional block coroutines.
+Other is a squencial code. It consist of functional block coroutines.
 ```csharp
 IEnumerator Sequncial(){
   yield return StartCoroutine(A());
