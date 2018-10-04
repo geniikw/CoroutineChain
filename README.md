@@ -12,7 +12,7 @@ Unity3d, Coroutine, scripting
 
 In my exprience, generally coroutine code can be classified into two kinds.
 
-One is functional one block. for example 
+One is a functional block. for example 
 
 ```csharp
 IEnumerator OneFunction(){
