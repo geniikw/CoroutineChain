@@ -155,3 +155,23 @@ IEnumerator Parallel(IEnumerator[] routines)
 }
 ```
 
+### WaitFor(Func<bool>)
+
+wait for a specific condition.
+
+```csharp
+void Start(){
+  CoroutineChain.Start
+          .WaitFor(()=>m_timer > 3f)
+          .Log("Complete");
+}
+
+float m_timer = 0f;
+
+void Update(){
+  m_timer += Time.deltaTime;
+}
+
+```
+
+
