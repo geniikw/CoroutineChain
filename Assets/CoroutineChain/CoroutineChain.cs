@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using geniikw.CChain;
@@ -322,10 +322,26 @@ namespace geniikw.CChain
             return this;
         }
 
+
+        /// <summary>
+        /// wait로 들어온 식이 true가 될때까지 기다림
+        /// </summary>
+        public ChainBase WaitFor(Func<bool> waitFlag){
+            m_chainQueue.Enqueue(ChainPool.Spawn().SetupRoutine(WaitForRoutine(waitFlag),_player));
+            return this;
+        }
+
         IEnumerator WaitRoutine(float wait)
         {
             yield return new WaitForSeconds(wait);
         }
+
+        IEnumerator WaitForRoutine(Func<bool> waitFlag){
+            while(!waitFlag())
+                yield return null;
+        }
+
+        
     }
 }
 #endregion
