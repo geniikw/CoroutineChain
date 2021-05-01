@@ -1,0 +1,16 @@
+{
+  "name": "com.geniikw.coroutinechain",
+  "version": "1.0.0",
+  "displayName": "CoroutineChain",
+  "description": "coroutine assist util",
+  "unity": "2019.3",
+  "dependencies": {
+ },
+ "keywords": [
+    "Coroutine"
+  ],
+  "author": {
+    "name": "geniikw",
+    "email": "geniikw@gmail.com"
+  }
+}
