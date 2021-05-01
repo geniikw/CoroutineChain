@@ -3,6 +3,10 @@ Unity3d, Coroutine, scripting
 
 [AssetStore](https://assetstore.unity.com/packages/tools/input-management/coroutinechain-109785)
 
+## Install
+
+Use package manager.(https://github.com/geniikw/CoroutineChain.git)
+
 ## Intro
 
 - easy to read coroutine code.
