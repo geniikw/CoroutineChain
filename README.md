@@ -5,7 +5,7 @@ Unity3d, Coroutine, scripting
 
 ## Install
 
-Use package manager.(https://github.com/geniikw/CoroutineChain.git)
+Use the unity package manager.(https://github.com/geniikw/CoroutineChain.git)
 
 ## Intro
 
