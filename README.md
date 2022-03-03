@@ -9,14 +9,14 @@ Use the unity package manager.(https://github.com/geniikw/CoroutineChain.git)
 
 ## Intro
 
-- easy to read coroutine code.
-- define callback simply
-- call coroutine at outside of MonoBehavour.
+- Easy to read coroutine code.
+- Define callback simply
+- Call coroutine at outside MonoBehavour.
 
 
-In my exprience, generally coroutine code can be classified into two kinds.
+In my experience, generally coroutine code can be classified into two kinds.
 
-One is a functional block. for example 
+One is a functional block. For example 
 
 ```csharp
 IEnumerator OneFunction(){
